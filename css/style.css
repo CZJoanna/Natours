@@ -54,12 +54,16 @@ body {
   /* 裁剪效果以致文字應距離父層top40%就好 */
   top: 40%;
   left: 50%;
+  /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
   transform: translate(-50%, -50%);
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* 修正動畫往上偏移的問題 */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -67,6 +71,9 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
@@ -74,4 +81,37 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+      opacity: 0;
+      transform:translateX(-100px);
+  }
+
+  80% {
+      transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform:translate(0px);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+      opacity: 0;
+      transform:translateX(100px);
+  }
+
+  80% {
+      transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform:translate(0px);
+  }
 }
