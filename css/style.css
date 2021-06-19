@@ -49,16 +49,18 @@ body {
 }
 
 .text-box {
-  /* 作者將標題及按鈕置中方式：選用position */
   position: absolute;
-  /* 裁剪效果以致文字應距離父層top40%就好 */
   top: 40%;
   left: 50%;
-  /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
-  transform: translate(-50%, -50%);
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
+  text-align: center;
 }
 
 .heading-primary {
+  margin-bottom: 60px;
   color: #fff;
   text-transform: uppercase;
 
@@ -86,32 +88,56 @@ body {
 
 @keyframes moveInLeft {
   0% {
-      opacity: 0;
-      transform:translateX(-100px);
+    opacity: 0;
+    transform: translateX(-100px);
   }
 
   80% {
-      transform: translateX(10px);
+    transform: translateX(10px);
   }
 
   100% {
     opacity: 100%;
-    transform:translate(0px);
+    transform: translate(0px);
   }
 }
 
 @keyframes moveInRight {
   0% {
-      opacity: 0;
-      transform:translateX(100px);
+    opacity: 0;
+    transform: translateX(100px);
   }
 
   80% {
-      transform: translateX(-10px);
+    transform: translateX(-10px);
   }
 
   100% {
     opacity: 100%;
-    transform:translate(0px);
+    transform: translate(0px);
   }
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
