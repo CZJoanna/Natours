@@ -7,20 +7,26 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* 讓box-sizing繼承父元素,不用每次都要再寫一遍  */
+  box-sizing: inherit;
 }
 
-/* root font-size is set in html selector */
+/* root font-size is set in html selector  */
+/* rem是根據root font-size 的pixel換算 */
+/* defalt font-size = 16px */
 html {
-  /* defalt font-size = 16px */
   /* change setting => 1rem = 10px */
-  font-size:10px;
+  /* font-size:10px; */ /* 但這樣寫不好 */
+  font-size: 62.5%;
 }
 
 body {
+  box-sizing: border-box;
   padding: 3rem;
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -52,7 +58,7 @@ body {
 
 .logo {
   /* 只要設定一邊的長度 另一邊將會由瀏覽器自動計算 */
-  height: 3.5rem
+  height: 3.5rem;
 }
 
 .text-box {
@@ -164,7 +170,7 @@ body {
 }
 
 .btn-animated {
-  animation: moveInButton .5s ease-out .75s;
+  animation: moveInButton 0.5s ease-out 0.75s;
   /* 在動畫還沒開始之前，讓該元素呈現什麼狀態 */
   animation-fill-mode: backwards;
 }
@@ -176,12 +182,12 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 10rem;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .btn-white::after {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   background-color: #fff;
   z-index: -1;
