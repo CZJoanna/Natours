@@ -117,8 +117,20 @@ body {
     transform: translate(0px);
   }
 }
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translate(0px);
+  }
+}
 
 .btn {
+  position: relative;
   display: inline-block;
   padding: 15px 40px;
   text-decoration: none;
@@ -140,4 +152,35 @@ body {
 .btn-white {
   background-color: #fff;
   color: #777;
+  /* 再創一個class放動畫 */
+  /* animation: moveInButton 1s ease-out .75s; */
+}
+
+.btn-animated {
+  animation: moveInButton .5s ease-out .75s;
+  /* 在動畫還沒開始之前，讓該元素呈現什麼狀態 */
+  animation-fill-mode: backwards;
+}
+
+.btn::after {
+  content: "";
+  /* 不了解為何再重寫一次 */
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  transition: all .4s;
+}
+
+.btn-white::after {
+  position: absolute;
+  top:0;
+  left: 0;
+  background-color: #fff;
+  z-index: -1;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }
