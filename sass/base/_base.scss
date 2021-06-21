@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* 讓box-sizing繼承父元素,不用每次都要再寫一遍  */
+  box-sizing: inherit;
+}
+
+/* root font-size is set in html selector  */
+/* rem是根據root font-size 的pixel換算 */
+/* defalt font-size = 16px */
+html {
+  /* change setting => 1rem = 10px */
+  /* font-size:10px; */ /* 但這樣寫不好 */
+  font-size: 62.5%; // This defines what rem is
+}
+
+body {
+  box-sizing: border-box;
+}
