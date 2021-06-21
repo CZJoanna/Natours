@@ -62,46 +62,41 @@ body {
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-.logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.logo {
-  /* 只要設定一邊的長度 另一邊將會由瀏覽器自動計算 */
-  height: 3.5rem; }
-
-.text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
-  text-align: center; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    /* 只要設定一邊的長度 另一邊將會由瀏覽器自動計算 */
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
+    text-align: center; }
 
 .heading-primary {
   margin-bottom: 6rem;
   color: #fff;
   text-transform: uppercase;
-  /* 修正動畫往上偏移的問題 */
-  backface-visibility: hidden; }
-
-.heading-primary-main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out; }
-
-.heading-primary-sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.74rem;
-  animation: moveInRight 1s ease-out; }
+  backface-visibility: hidden;
+  /* 修正動畫往上偏移的問題 */ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    animation: moveInRight 1s ease-out; }
 
 .btn {
   position: relative;
@@ -120,13 +115,13 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   transform: translateY(-0.1rem); }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
   /* 再創一個class放動畫 */
   /* animation: moveInButton 1s ease-out .75s; */ }
 
-.btn-animated {
+.btn--animated {
   animation: moveInButton 0.5s ease-out 0.75s;
   /* 在動畫還沒開始之前，讓該元素呈現什麼狀態 */
   animation-fill-mode: backwards; }
@@ -140,7 +135,7 @@ body {
   border-radius: 10rem;
   transition: all 0.4s; }
 
-.btn-white::after {
+.btn--white::after {
   position: absolute;
   top: 0;
   left: 0;

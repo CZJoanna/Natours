@@ -18,14 +18,14 @@
   transform: translateY(-0.1rem);
 }
 
-.btn-white {
+.btn--white {
   background-color: $color-white;
   color: $color-grey-dark;
   /* 再創一個class放動畫 */
   /* animation: moveInButton 1s ease-out .75s; */
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInButton 0.5s ease-out 0.75s;
   /* 在動畫還沒開始之前，讓該元素呈現什麼狀態 */
   animation-fill-mode: backwards;
@@ -41,7 +41,7 @@
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   position: absolute;
   top: 0;
   left: 0;
