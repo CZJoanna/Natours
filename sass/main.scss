@@ -7,9 +7,22 @@ Dark green: #28b485
 
 */
 
+@import "./abstracts/functions" ;
+@import "./abstracts/mixins" ;
+@import "./abstracts/variables" ;
+
+@import "./base/animation" ;
+@import "./base/base" ;
+@import "./base/typography" ;
+@import "./base/utilities" ;
+
+@import "./pages/home" ;
+
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #fff;
 
 *,
 *::after,
@@ -36,7 +49,7 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
 }
 
 .header {
@@ -78,7 +91,7 @@ body {
 
 .heading-primary {
   margin-bottom: 6rem;
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
 
   /* 修正動畫往上偏移的問題 */
@@ -167,8 +180,8 @@ body {
 }
 
 .btn-white {
-  background-color: #fff;
-  color: #777;
+  background-color: $color-white;
+  color: $color-grey-dark;
   /* 再創一個class放動畫 */
   /* animation: moveInButton 1s ease-out .75s; */
 }
@@ -186,14 +199,14 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 10rem;
-  transition: all 0.4s;
+  transition: all 3s;
 }
 
 .btn-white::after {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: $color-white;
   z-index: -1;
 }
 
