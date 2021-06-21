@@ -1,0 +1,199 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* 讓box-sizing繼承父元素,不用每次都要再寫一遍  */
+  box-sizing: inherit;
+}
+
+/* root font-size is set in html selector  */
+/* rem是根據root font-size 的pixel換算 */
+/* defalt font-size = 16px */
+html {
+  /* change setting => 1rem = 10px */
+  /* font-size:10px; */ /* 但這樣寫不好 */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777;
+}
+
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 131, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.logo {
+  /* 只要設定一邊的長度 另一邊將會由瀏覽器自動計算 */
+  height: 3.5rem;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
+  text-align: center;
+}
+
+.heading-primary {
+  margin-bottom: 6rem;
+  color: #fff;
+  text-transform: uppercase;
+
+  /* 修正動畫往上偏移的問題 */
+  backface-visibility: hidden;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.74rem;
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translate(0);
+  }
+}
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translate(0);
+  }
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 1.5rem 4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 10rem;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.3rem);
+}
+
+.btn:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.1rem);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  /* 再創一個class放動畫 */
+  /* animation: moveInButton 1s ease-out .75s; */
+}
+
+.btn-animated {
+  animation: moveInButton 0.5s ease-out 0.75s;
+  /* 在動畫還沒開始之前，讓該元素呈現什麼狀態 */
+  animation-fill-mode: backwards;
+}
+
+.btn::after {
+  content: "";
+  /* 不了解為何再重寫一次 */
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: -1;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
