@@ -2,6 +2,7 @@
   position: relative;
   display: inline-block;
   padding: 1.5rem 4rem;
+  font-size: $default-font-size;
   text-decoration: none;
   text-transform: uppercase;
   border-radius: 10rem;
@@ -44,5 +45,26 @@
     animation: moveInButton 0.5s ease-out 0.75s;
     /* 在動畫還沒開始之前，讓該元素呈現什麼狀態 */
     animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  display: inline-block;
+  padding: 3px;
+  border-bottom: 1px solid $color-primary;
+  color: $color-primary;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-primary;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
   }
 }
