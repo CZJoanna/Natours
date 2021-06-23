@@ -55,28 +55,6 @@ body {
   line-height: 1.7;
   color: #777; }
 
-.header {
-  position: relative;
-  height: 95vh;
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    /* 只要設定一邊的長度 另一邊將會由瀏覽器自動計算 */
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
-    text-align: center; }
-
 .heading-primary {
   margin-bottom: 6rem;
   color: #fff;
@@ -106,42 +84,91 @@ body {
   text-transform: uppercase;
   border-radius: 10rem;
   transition: all 0.2s; }
+  .btn:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.3rem); }
+  .btn:active {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.1rem); }
+  .btn::after {
+    content: "";
+    /* 不了解為何再重寫一次 */
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    transition: all 0.4s; }
+    .btn::after:hover {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn--white {
+    background-color: #fff;
+    color: #777;
+    /* 再創一個class放動畫 */
+    /* animation: moveInButton 1s ease-out .75s; */ }
+    .btn--white::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      z-index: -1; }
+  .btn--animated {
+    animation: moveInButton 0.5s ease-out 0.75s;
+    /* 在動畫還沒開始之前，讓該元素呈現什麼狀態 */
+    animation-fill-mode: backwards; }
 
-.btn:hover {
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  transform: translateY(-0.3rem); }
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    /* 只要設定一邊的長度 另一邊將會由瀏覽器自動計算 */
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
+    text-align: center; }
 
-.btn:active {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  transform: translateY(-0.1rem); }
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+  background-color: #eee; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row [class^="col-"] {
+    float: left;
+    background-color: pink; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
 
-.btn--white {
-  background-color: #fff;
-  color: #777;
-  /* 再創一個class放動畫 */
-  /* animation: moveInButton 1s ease-out .75s; */ }
+.col-1-of-2 {
+  width: calc((100% - 6rem) / 2); }
 
-.btn--animated {
-  animation: moveInButton 0.5s ease-out 0.75s;
-  /* 在動畫還沒開始之前，讓該元素呈現什麼狀態 */
-  animation-fill-mode: backwards; }
+.col-1-of-3 {
+  width: calc((100% - 2 *6rem) / 3); }
 
-.btn::after {
-  content: "";
-  /* 不了解為何再重寫一次 */
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  border-radius: 10rem;
-  transition: all 0.4s; }
+.col-1-of-4 {
+  width: calc((100% - 3 *6rem) / 4); }
 
-.btn--white::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  z-index: -1; }
+.col-2-of-3 {
+  width: calc( 2 * ((100% - 2 *6rem) / 3) + 6rem); }
 
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+.col-2-of-4 {
+  width: calc( 2 * ((100% - 3 *6rem) / 4) + 6rem); }
+
+.col-3-of-4 {
+  width: calc( 3 * ((100% - 3 *6rem) / 4) + 2 * 6rem); }
