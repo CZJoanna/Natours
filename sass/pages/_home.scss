@@ -3,3 +3,25 @@
   padding: 25rem 0;
   margin-top: -20vh; //clip-path 裁減多邊形的高度差
 }
+
+.section-features {
+  padding: 20rem 0;
+  margin-top: -12vh;
+  background-image: linear-gradient(
+      to right,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  background-size: cover;
+  background-position: top;
+  // method 1:使用clip-path做圖片多邊形剪裁
+  // clip-path: polygon(0 15vh, 100% 0, 100% 85vh, 0 100%);
+  //method 2:
+  // 將整個section skew
+  transform: skewY(-7deg);
+  //把所有子元素再轉回來
+  & > * {
+    transform: skewY(7deg);
+  }
+}

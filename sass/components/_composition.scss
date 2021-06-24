@@ -5,13 +5,8 @@
     width: 55%;
     border-radius: 2px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
-    transition: all ease-out 0.3s;
-
-    &:hover {
-      z-index: 1;
-      transform: scale(1.05);
-      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
-    }
+    outline-offset: 2rem; //相片外框簍空
+    transition: all 0.3s;
 
     &--p1 {
       top: 0;
@@ -25,5 +20,16 @@
       top: 10rem;
       left: 20%;
     }
+
+    &:hover {
+      z-index: 1;
+      transform: scale(1.05) translateY(-1rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      outline: 1rem solid $color-primary-dark; //相片外框效果
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
   }
 }
