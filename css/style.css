@@ -45,10 +45,10 @@ html {
   font-size: 62.5%; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 3rem; }
 
 body {
-  padding: 3rem;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
@@ -171,6 +171,38 @@ body {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     transform: translateY(0); }
 
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem; }
+  .card__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50rem;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    backface-visibility: hidden;
+    transition: all ease 0.8s; }
+    .card__side--front {
+      background-color: #fff;
+      transform: rotateY(0); }
+    .card__side--back {
+      transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+      .card__side--back-2 {
+        background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+      .card__side--back-3 {
+        background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0); }
+
 .composition {
   position: relative; }
   .composition__photo {
@@ -216,28 +248,6 @@ body {
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.03); }
 
-.header {
-  position: relative;
-  height: 95vh;
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    /* 只要設定一邊的長度 另一邊將會由瀏覽器自動計算 */
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
-    text-align: center; }
-
 .row {
   max-width: 114rem;
   margin: 0 auto; }
@@ -270,6 +280,28 @@ body {
 .col-3-of-4 {
   width: calc( 3 * ((100% - 3 *6rem) / 4) + 2 * 6rem); }
 
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    /* 只要設定一邊的長度 另一邊將會由瀏覽器自動計算 */
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 在transform使用％，則是以該元素本身大小作為計算基準（ｘ軸-50%表示往左邊移動該元素寬度50％的距離） */
+    text-align: center; }
+
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;
@@ -284,3 +316,8 @@ body {
   transform: skewY(-7deg); }
   .section-features > * {
     transform: skewY(7deg); }
+
+.section-tours {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -10vh; }

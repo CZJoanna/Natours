@@ -1,0 +1,66 @@
+.card {
+  //製作透視效果
+  perspective: 150rem;
+  //can work on Firefox as well
+  -moz-perspective: 150rem;
+  //transition: all 0.8s;
+  position: relative;
+  //   子元素皆跳脫頁面流 父元素collapse 所以要幫復元素設定和子元素一樣的高度
+  height: 50rem;
+
+  &__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50rem;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    // backface-visibility 的 default value: visible
+    backface-visibility: hidden;
+    transition: all ease 0.8s;
+
+    &--front {
+      background-color: $color-white;
+      transform: rotateY(0);
+    }
+
+    &--back {
+      //   background-color: rgb(160, 160, 126);
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
