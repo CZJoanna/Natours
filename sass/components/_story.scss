@@ -1,0 +1,71 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  padding: 6rem;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.8);
+  transform: skewX(-12deg);
+  &:not(:last-child) {
+      margin-bottom: 4rem;
+  }
+  //   font-size: $default-font-size;  //inherit to paragraph
+
+  //此做法無效,因為.story__shape已經有transform。解法：直接個別寫在要做用的子代選擇器上
+  //   &>* {
+  //     transform: skewX(12deg);
+  //   }
+
+  &__shape {
+    position: relative;
+    float: left;
+    width: 15rem;
+    height: 15rem;
+
+    //讓文字沿著圓形浮動
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    //讓該元素變成圓形
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    //圖片與文字間的空間 用移動元素取代margin
+    transform: translateX(-3rem) skewX(12deg);
+    //encounter  unexpected slice : use hidden to fix it ;
+    overflow: hidden;
+  }
+
+  &__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all ease 0.5s;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $color-white;
+    font-size: 1.7rem;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translate(-50%, 20%);
+    backface-visibility: hidden;
+    opacity: 0;
+    transition: all ease 0.5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}

@@ -1,7 +1,7 @@
 .section-about {
-  background-color: $color-grey-light-1;
   padding: 25rem 0;
   margin-top: -20vh; //clip-path 裁減多邊形的高度差
+  background-color: $color-grey-light-1;
 }
 
 .section-features {
@@ -27,7 +27,12 @@
 }
 
 .section-tours {
-  background-color: $color-grey-light-1;
-  padding: 25rem 0;
+  padding: 25rem 0 15rem 0;
   margin-top: -10vh; //clip-path 裁減多邊形的高度差
+  background-color: $color-grey-light-1;
+}
+
+.section-stories {
+  padding: 15rem 0;
+  background-color: rgb(248, 247, 247);
 }
