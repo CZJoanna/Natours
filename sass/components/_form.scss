@@ -78,17 +78,14 @@
 
     &::after {
       content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
       display: block;
       height: 1.2rem;
       width: 1.2rem;
       background-color: $color-primary;
       border-radius: 50%;
       opacity: 0;
-      transform: translate(-50%, -50%);
       transition: opacity 0.2s;
+      @include absolute-center-itself;
     }
   }
 }

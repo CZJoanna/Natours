@@ -42,17 +42,14 @@
   }
 
   &__caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     color: $color-white;
     font-size: 1.7rem;
     text-align: center;
     text-transform: uppercase;
-    transform: translate(-50%, 20%);
     backface-visibility: hidden;
     opacity: 0;
     transition: all ease 0.5s;
+    @include absolute-center-itself;
   }
 
   &__text {
