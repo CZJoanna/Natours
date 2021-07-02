@@ -77,6 +77,7 @@
     border: 2.5px solid $color-primary;
 
     &::after {
+      @include absolute-center-itself;
       content: "";
       display: block;
       height: 1.2rem;
@@ -85,7 +86,6 @@
       border-radius: 50%;
       opacity: 0;
       transition: opacity 0.2s;
-      @include absolute-center-itself;
     }
   }
 }

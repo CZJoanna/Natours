@@ -167,9 +167,9 @@
   //BACK SIDE STYLING
 
   &__cta {
+    @include absolute-center-itself;
     width: 100%;
     text-align: center;
-    @include absolute-center-itself;
   }
 
   &__price-box {

@@ -42,6 +42,7 @@
   }
 
   &__caption {
+    @include absolute-center-itself;
     color: $color-white;
     font-size: 1.7rem;
     text-align: center;
@@ -49,7 +50,6 @@
     backface-visibility: hidden;
     opacity: 0;
     transition: all ease 0.5s;
-    @include absolute-center-itself;
   }
 
   &__text {
