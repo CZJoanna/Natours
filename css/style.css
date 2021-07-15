@@ -1,4 +1,20 @@
 @charset "UTF-8";
+/*
+
+0 - 600px : Phone
+600 - 900px : Tablet portrait
+900 - 1200px : Tablet landscape
+[1200 - 1800px] : - normal styles apply
+1800px + : Big Desktop
+
+
+/*
+BREAKPOINT ARGUMENTS CHOIES
+-phone  
+-tab-port   
+-tab-land   
+-big-desktop   
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -40,13 +56,23 @@
 /* defalt font-size = 16px */
 html {
   /* change setting => 1rem = 10px */
-  /* font-size:10px; */
-  /* 但這樣寫不好 */
   font-size: 62.5%; }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+  @media only screen and (max-width: 66.25em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
 
 body {
   box-sizing: border-box;
   padding: 3rem; }
+  @media only screen and (max-width: 66.25em) {
+    body {
+      padding: 0; } }
 
 body {
   font-family: "Lato", sans-serif;
@@ -69,12 +95,19 @@ body {
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out; }
+    @media only screen and (max-width: 43.5em) {
+      .heading-primary--main {
+        font-size: 5rem;
+        letter-spacing: 2rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.74rem;
     animation: moveInRight 1s ease-out; }
+    @media only screen and (max-width: 43.5em) {
+      .heading-primary--sub {
+        letter-spacing: 1rem; } }
 
 .heading-secondary {
   display: inline-block;
@@ -554,12 +587,31 @@ body {
 .row {
   max-width: 114rem;
   margin: 0 auto; }
+  @media only screen and (max-width: 66.25em) {
+    .row {
+      max-width: 80rem; } }
+  @media only screen and (max-width: 43.5em) {
+    .row {
+      max-width: 50rem; } }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+    @media only screen and (max-width: 66.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 4rem; } }
   .row [class^="col-"] {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
+      @media only screen and (max-width: 66.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 3rem;
+          margin-bottom: 4rem; } }
+    @media only screen and (max-width: 66.25em) {
+      .row [class^="col-"] {
+        width: 46% !important; } }
+    @media only screen and (max-width: 43.5em) {
+      .row [class^="col-"] {
+        width: 100% !important; } }
   .row::after {
     content: "";
     display: table;
@@ -591,6 +643,10 @@ body {
   background-position: top;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  @media only screen and (max-width: 43.5em) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 88vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 88vh, 0 100%); } }
   .header__logo-box {
     position: absolute;
     top: 4rem;
